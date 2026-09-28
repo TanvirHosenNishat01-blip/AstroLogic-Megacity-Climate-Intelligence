@@ -1,0 +1,37 @@
+{
+  "id": "cairo",
+  "name": "Cairo (Egypt)",
+  "country": "Egypt",
+  "lat": 30.0444,
+  "lon": 31.2357,
+  "baseline": {
+    "id": "fayoum",
+    "name": "Fayoum Oasis Baseline",
+    "lat": 29.3084,
+    "lon": 30.8428,
+    "type": "Agricultural Oasis & Natural Sink"
+  },
+  "demographics": {
+    "population_m": 22.1,
+    "density_sqkm": 19376,
+    "slum_ratio": 0.30,
+    "vulnerability_multiplier": 1.30
+  },
+  "climate_offsets": {
+    "target_bias": 0.50,
+    "target_scale": 1.02,
+    "baseline_bias": -0.80,
+    "baseline_scale": 0.99
+  },
+  "sms_gateway": {
+    "sender": "EMA / Cairo Emergency Alert",
+    "hotline": "114",
+    "coverage": "Vodafone, Orange, Etisalat, WE"
+  },
+  "local_agencies": {
+    "municipal": "Cairo Governorate",
+    "urban_planning": "General Organization for Physical Planning",
+    "water": "Cairo Water Company",
+    "health": "Ministry of Health & Population"
+  }
+}

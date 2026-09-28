@@ -1,0 +1,37 @@
+{
+  "id": "dhaka",
+  "name": "Dhaka (Bangladesh)",
+  "country": "Bangladesh",
+  "lat": 23.8103,
+  "lon": 90.4125,
+  "baseline": {
+    "id": "sylhet",
+    "name": "Sylhet Rural Baseline",
+    "lat": 24.8949,
+    "lon": 91.8687,
+    "type": "Natural Canopy & High Vegetation Control"
+  },
+  "demographics": {
+    "population_m": 23.2,
+    "density_sqkm": 30093,
+    "slum_ratio": 0.38,
+    "vulnerability_multiplier": 1.45
+  },
+  "climate_offsets": {
+    "target_bias": 0.0,
+    "target_scale": 1.0,
+    "baseline_bias": -0.85,
+    "baseline_scale": 0.98
+  },
+  "sms_gateway": {
+    "sender": "BTRC / DNCC Climate Alert",
+    "hotline": "*16100#",
+    "coverage": "Grameenphone, Banglalink, Robi, Teletalk"
+  },
+  "local_agencies": {
+    "municipal": "DNCC & DSCC",
+    "urban_planning": "RAJUK",
+    "water": "Dhaka WASA",
+    "health": "DGHS & icddr,b"
+  }
+}
