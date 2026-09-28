@@ -1,0 +1,37 @@
+{
+  "id": "jakarta",
+  "name": "Jakarta (Indonesia)",
+  "country": "Indonesia",
+  "lat": -6.2088,
+  "lon": 106.8456,
+  "baseline": {
+    "id": "bogor",
+    "name": "Bogor Highland Baseline",
+    "lat": -6.5971,
+    "lon": 106.8060,
+    "type": "Montane Forest & Agro-ecological Control"
+  },
+  "demographics": {
+    "population_m": 11.2,
+    "density_sqkm": 15900,
+    "slum_ratio": 0.26,
+    "vulnerability_multiplier": 1.25
+  },
+  "climate_offsets": {
+    "target_bias": 0.45,
+    "target_scale": 0.99,
+    "baseline_bias": -0.75,
+    "baseline_scale": 0.97
+  },
+  "sms_gateway": {
+    "sender": "BPBD DKI Jakarta Alert",
+    "hotline": "112",
+    "coverage": "Telkomsel, Indosat, XL Axiata"
+  },
+  "local_agencies": {
+    "municipal": "DKI Jakarta Provincial Government",
+    "urban_planning": "Bappeda Jakarta",
+    "water": "PAM JAYA",
+    "health": "Dinas Kesehatan & BPBD DKI"
+  }
+}
