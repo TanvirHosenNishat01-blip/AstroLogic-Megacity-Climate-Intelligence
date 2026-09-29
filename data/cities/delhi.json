@@ -1,0 +1,37 @@
+{
+  "id": "delhi",
+  "name": "Delhi (India)",
+  "country": "India",
+  "lat": 28.6139,
+  "lon": 77.2090,
+  "baseline": {
+    "id": "shimla",
+    "name": "Aravalli / Himalayan Foothill Baseline",
+    "lat": 31.1048,
+    "lon": 77.1734,
+    "type": "High Altitude Forest Control"
+  },
+  "demographics": {
+    "population_m": 33.8,
+    "density_sqkm": 29259,
+    "slum_ratio": 0.35,
+    "vulnerability_multiplier": 1.40
+  },
+  "climate_offsets": {
+    "target_bias": 0.85,
+    "target_scale": 1.03,
+    "baseline_bias": -0.95,
+    "baseline_scale": 0.98
+  },
+  "sms_gateway": {
+    "sender": "DDMA / MCD Heatwatch",
+    "hotline": "1077",
+    "coverage": "Airtel, Jio, Vi, BSNL"
+  },
+  "local_agencies": {
+    "municipal": "Municipal Corporation of Delhi (MCD)",
+    "urban_planning": "Delhi Development Authority (DDA)",
+    "water": "Delhi Jal Board (DJB)",
+    "health": "Delhi Disaster Management Authority (DDMA)"
+  }
+}
