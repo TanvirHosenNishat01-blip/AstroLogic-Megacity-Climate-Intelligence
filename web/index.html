@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Megacity Climate Intelligence</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>Megacity Climate Intelligence 🌍🔍</h1>
+      <p id="txt-subtitle">NASA Space Apps 2026 — Global Megacity Blueprint (Team AstroLogic)</p>
+    </div>
+    <div class="header-right">
+      <button class="lang-btn" onclick="toggleLanguage()" id="btn-lang">বাংলা</button>
+      <button class="export-btn" onclick="exportData()" id="btn-export">⬇ Export Science Bundle</button>
+      <div class="badge" id="offline-badge">Offline Ready</div>
+    </div>
+  </header>
+
+  <!-- Persona / Role Filter Bar -->
+  <section class="persona-nav">
+    <span class="persona-label" id="lbl-persona-select">🎯 Select Perspective / Role:</span>
+    <div class="persona-buttons">
+      <button class="p-btn active" onclick="setPersona('overview')" id="btn-p-overview">🌐 Overview (All)</button>
+      <button class="p-btn" onclick="setPersona('citizen')" id="btn-p-citizen">👤 Citizen Mode</button>
+      <button class="p-btn" onclick="setPersona('planner')" id="btn-p-planner">🏛 City Planner Mode</button>
+      <button class="p-btn" onclick="setPersona('scientist')" id="btn-p-scientist">🔬 Scientist / Judge Mode</button>
+    </div>
+  </section>
+
+  <main>
+    <!-- Map Section -->
+    <section class="map-section persona-target" id="sec-map">
+      <div id="map"></div>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls persona-target" id="sec-controls">
+      <div class="control-group global-select-group">
+        <label for="city-select" id="lbl-city">🌐 Global Blueprint City:</label>
+        <select id="city-select" onchange="loadComparison()">
+          <option value="dhaka" selected>Dhaka (Bangladesh) — Benchmark</option>
+          <option value="jakarta">Jakarta (Indonesia)</option>
+          <option value="lagos">Lagos (Nigeria)</option>
+          <option value="cairo">Cairo (Egypt)</option>
+          <option value="delhi">Delhi (India)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="param-select" id="lbl-metric">Metric:</label>
+        <select id="param-select" onchange="loadComparison()"></select>
+      </div>
+
+      <div class="control-group">
+        <label for="season-select" id="lbl-season">Season Decomposition:</label>
+        <select id="season-select" onchange="loadComparison()"></select>
+      </div>
+
+      <div class="control-group range-group">
+        <label id="lbl-range">Start Year: <span id="year-display">2004</span></label>
+        <input type="range" id="year-range" min="2004" max="2018" value="2004" oninput="updateYear(this.value)">
+      </div>
+
+      <button class="primary-btn" onclick="loadComparison()" id="btn-detect">Detect Trends</button>
+    </section>
+
+    <!-- Population-Weighted Heat Exposure Index (PHEI) -->
+    <section class="phei-bar persona-target" id="sec-phei">
+      <div class="phei-metric">
+        <div class="phei-label" id="lbl-phei">Population-Weighted Heat Exposure Index (PHEI)</div>
+        <div class="phei-value"><span id="val-phei">84.2</span> / 100 <span class="phei-badge" id="badge-phei">CRITICAL</span></div>
+      </div>
+      <div class="phei-metric">
+        <div class="phei-label" id="lbl-exp-total">Total Urban Population Exposed</div>
+        <div class="phei-value" id="val-exp-total">23.2 Million</div>
+      </div>
+      <div class="phei-metric">
+        <div class="phei-label" id="lbl-exp-slum">High-Vulnerability Slum / Tin-Roof Dwellers</div>
+        <div class="phei-value text-alert" id="val-exp-slum">8.81 Million (38%)</div>
+      </div>
+      <div class="phei-metric">
+        <div class="phei-label" id="lbl-density">Urban Built-up Density</div>
+        <div class="phei-value" id="val-density">30,093 / km²</div>
+      </div>
+    </section>
+
+    <!-- Simulator Bar -->
+    <section class="simulator-bar persona-target" id="sec-simulator">
+      <div class="sim-group">
+        <label id="lbl-sim">🌱 <strong>C40 Urban Heat Mitigation Simulator (2035):</strong></label>
+        <select id="mitigation-select" onchange="loadComparison()"></select>
+      </div>
+      <div class="sim-group">
+        <label>
+          <input type="checkbox" id="chk-bmd" onchange="loadComparison()" checked>
+          <span id="lbl-bmd">🛰 Cross-Validate with In-Situ Meteorological Ground Truth</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Geographic Location Banner -->
+    <section class="geo-banner persona-target" id="sec-geo">
+      <div class="geo-item" id="geo-target">📍 <strong>Target Core:</strong> Loading...</div>
+      <div class="geo-item" id="geo-baseline">📍 <strong>Control Baseline:</strong> Loading...</div>
+    </section>
+
+    <!-- Citizen Early Warning SMS Box -->
+    <section class="citizen-sms-box persona-target" id="sec-citizen-sms">
+      <div class="sms-header">
+        <h3 id="sms-title">📱 Low-Bandwidth Citizen Early Warning System (Live SMS Broadcast)</h3>
+        <span class="sms-badge" id="sms-tier-badge">RED EMERGENCY</span>
+      </div>
+      <p class="subtitle" id="sms-sub">Designed for 23+ million citizens, rickshaw pullers, and informal workers with zero smartphone access.</p>
+      
+      <div class="sms-container">
+        <div class="sms-bubble">
+          <div class="sms-sender" id="sms-sender-lbl">From: <strong>BTRC / Municipal Climate Alert System</strong></div>
+          <div class="sms-body" id="sms-text-content">Loading live citizen alert...</div>
+          <div class="sms-footer" id="sms-footer-lbl">Dial: <strong>*16100#</strong> for Free Shelter Locator | Zero Internet Required</div>
+        </div>
+        <div class="sms-meta-info">
+          <div><strong id="sms-meta-cov-lbl">Target Coverage:</strong> <span id="sms-meta-cov-val">All Mobile Operators (GP, BL, Robi, Teletalk)</span></div>
+          <div><strong id="sms-meta-std-lbl">Global Standard:</strong> <span id="sms-meta-std-val">UN Early Warnings for All (EW4All) & ITU Protocol</span></div>
+          <div><strong id="sms-meta-trig-lbl">Action Trigger:</strong> <span id="sms-meta-trig-val">Automated NASA Night-time Anomaly Threshold (T2M_MIN ≥ 25°C)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- City Charts Grid -->
+    <div class="grid persona-target" id="sec-city-charts">
+      <div class="card" id="card-dhaka">
+        <h2 id="title-dhaka">URBAN MEGACITY CORE</h2>
+        <div class="stats" id="stats-dhaka">Loading metrics...</div>
+        <div class="chart-container"><canvas id="chart-dhaka"></canvas></div>
+        <button class="prov-btn" onclick="toggleProv('dhaka')" id="btn-prov-dhaka">Toggle Provenance Drawer</button>
+        <pre class="prov-drawer" id="prov-dhaka"></pre>
+      </div>
+
+      <div class="card" id="card-sylhet">
+        <h2 id="title-sylhet">REGIONAL BASELINE CONTROL</h2>
+        <div class="stats" id="stats-sylhet">Loading metrics...</div>
+        <div class="chart-container"><canvas id="chart-sylhet"></canvas></div>
+        <button class="prov-btn" onclick="toggleProv('sylhet')" id="btn-prov-sylhet">Toggle Provenance Drawer</button>
+        <pre class="prov-drawer" id="prov-sylhet"></pre>
+      </div>
+    </div>
+
+    <!-- Delta Card -->
+    <section class="card delta-card persona-target" id="sec-delta">
+      <h2 id="title-delta">Differential Urban Heat Footprint (ΔT = City - Rural Baseline)</h2>
+      <p class="subtitle" id="sub-delta">Isolating local anthropogenic urban heat signature from broad regional climate trends.</p>
+      <div class="stats" id="stats-delta">Loading delta analysis...</div>
+      <div class="chart-container-large"><canvas id="chart-delta"></canvas></div>
+    </section>
+
+    <!-- Public Health Impact Section -->
+    <section class="health-card persona-target" id="sec-health">
+      <h3 id="title-health">🏥 Epidemiological Vulnerability & Public Health Nexus (Surveillance)</h3>
+      <p class="subtitle" id="sub-health">Causal mapping between detected NASA climate trends and primary health risks in urban megacities.</p>
+      <div class="health-grid" id="health-grid"></div>
+    </section>
+
+    <!-- Scientific Interpretation Summary -->
+    <section class="summary-box persona-target" id="sec-interpretation">
+      <h3 id="title-summary">Scientific Interpretation & Trend Attribution</h3>
+      <div id="interpretation-text">Processing environmental models...</div>
+    </section>
+
+    <!-- Authority Policy Roadmap -->
+    <section class="matrix-card persona-target" id="sec-matrix">
+      <div class="matrix-header">
+        <div>
+          <h3 id="matrix-title">🏛 Authority Resilience Roadmap: Data-to-Decision Matrix</h3>
+          <p class="subtitle" id="matrix-sub">Phased multi-agency interventions triggered by detected climate trends.</p>
+        </div>
+        <div class="horizon-tabs">
+          <button class="tab-btn active" onclick="switchHorizon('short')" id="tab-short">Short-Term (0-1 Yr)</button>
+          <button class="tab-btn" onclick="switchHorizon('mid')" id="tab-mid">Mid-Term (3-5 Yrs)</button>
+          <button class="tab-btn" onclick="switchHorizon('long')" id="tab-long">Long-Term (10-15 Yrs)</button>
+        </div>
+      </div>
+      <div class="matrix-content" id="matrix-content"></div>
+    </section>
+
+    <!-- Health Modal -->
+    <div id="health-modal" class="modal-overlay" onclick="closeHealthModal(event)">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <div>
+            <h2 id="modal-title"></h2>
+            <div id="modal-trigger" class="modal-trigger-sub"></div>
+          </div>
+          <button class="modal-close" onclick="closeHealthModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
