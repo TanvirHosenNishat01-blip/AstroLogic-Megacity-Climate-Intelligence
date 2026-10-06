@@ -4,16 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Megacity Climate Intelligence</title>
+  
+  <!-- Main Application Styling -->
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Leaflet CSS: Priority Local Storage with Remote CDN Fallback -->
+  <link rel="stylesheet" href="./leaflet.css" onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+
+  <!-- Leaflet JavaScript Core Library -->
+  <script src="./leaflet.js"></script>
+  <script>
+    // Fallback logic if local Leaflet library fails to execute
+    if (typeof L === 'undefined') {
+      document.write('<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"><\/script>');
+    }
+  </script>
+
+  <!-- Chart.js Visualization Library -->
+  <script src="./chart.umd.min.js"></script>
+  <script>
+    // Fallback logic if local Chart.js library fails to execute
+    if (typeof Chart === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js"><\/script>');
+    }
+  </script>
+
+  <!-- Offline Geospatial GeoJSON Boundaries for Black Map Fix -->
+  <script src="./world_data.js"></script>
 </head>
 <body>
   <header>
     <div class="brand">
-      <h1>Megacity Climate Intelligence 🌍🔍</h1>
-      <p id="txt-subtitle">NASA Space Apps 2026 — Global Megacity Blueprint (Team AstroLogic)</p>
+      <h1>ClimaDhaka 🌍🔍</h1>
+      <p id="txt-subtitle">NASA Space Apps 2026 — Megacity Blueprint (Team AstroLogic)</p>
     </div>
     <div class="header-right">
       <button class="lang-btn" onclick="toggleLanguage()" id="btn-lang">বাংলা</button>
