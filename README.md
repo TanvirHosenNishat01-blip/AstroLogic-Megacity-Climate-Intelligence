@@ -155,8 +155,6 @@ Open `http://127.0.0.1:8000` in your web browser. All statistical metrics, time-
 
 ---
 
-## 👥 Team AstroLogic & Project Roles
-
 ## 👥 Team AstroLogic & Core Responsibilities
 
 | Member | Institution | Role & Technical Domain Focus |
