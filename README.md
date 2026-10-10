@@ -69,36 +69,59 @@ Urban centers face accelerating thermal stress driven by the compounding effects
 
 ## Directory Structure
 
-```text
 AstroLogic-Megacity-Climate-Intelligence/
-├─ LICENSE                 # Apache-2.0 Open Source License
-├─ README.md               # System specification and documentation
-├─ CLAUDE.md               # Engineering and agent operational constraints
-├─ AGENTS.md               # Runtime agent boundary protocols
-├─ .env.example            # Environment configuration template
-├─ .gitignore              # Git exclusion rules
-├─ cache/                  # Offline NASA POWER climate cache
-├─ demo_fixtures/          # Zero-network verification fixtures
-├─ docs/
-│  └─ AI_USE.md            # NASA Space Apps AI usage disclosure ledger
-├─ data/
-│  └─ cities/              # Telemetry profiles (Dhaka, Delhi, Jakarta, Cairo, Lagos)
-├─ src/
-│  ├─ acquire/
-│  │  └─ safe.py           # Robust offline-first fetch abstraction
-│  ├─ compute/
-│  │  └─ trend.py          # Mann-Kendall and Theil-Sen mathematical engine
-│  ├─ agents/
-│  │  └─ loop.py           # Explanation runtime with citation enforcement
-│  └─ api/
-│     └─ main.py           # FastAPI backend server
-└─ web/
-   ├─ index.html           # Bilingual dashboard UI
-   ├─ style.css            # Responsive dark-theme dashboard stylesheet
-   └─ app.js               # Leaflet.js map and Chart.js visualization engine
-
-```
-
+├── .env.example                                      # Environment variables template
+├── .gitignore                                        # Git untracked and cache exclusion rules
+├── AGENTS.md                                         # Runtime agent boundary and execution protocols
+├── AstroLogic 240 Second  Presentation Slide With Live Demo Video.pdf # 240s pitch deck & demo video link
+├── LICENSE                                           # Apache-2.0 Open Source License
+├── README.md                                         # Core project specification and system documentation
+├── cache/                                            # Primary offline NASA POWER climate telemetry cache
+│   ├── power_cairo.json                              # Offline climate cache for Cairo
+│   ├── power_delhi.json                              # Offline climate cache for Delhi
+│   ├── power_dhaka.json                              # Offline climate cache for Dhaka
+│   ├── power_jakarta.json                            # Offline climate cache for Jakarta
+│   ├── power_lagos.json                              # Offline climate cache for Lagos
+│   └── power_sylhet.json                             # Offline climate cache for Sylhet
+├── data/
+│   └── cities/                                       # Target megacity profiles (coordinates & metadata)
+│       ├── cairo.json
+│       ├── delhi.json
+│       ├── dhaka.json
+│       ├── jakarta.json
+│       └── lagos.json
+├── demo_fixtures/                                    # Isolated mock fixtures & zero-network test suite
+│   ├── power_cairo.json
+│   ├── power_delhi.json
+│   ├── power_dhaka.json
+│   ├── power_jakarta.json
+│   ├── power_lagos.json
+│   ├── power_sylhet.json
+│   └── sample_power.json
+├── docs/
+│   └── AI_USE.md                                     # NASA Space Apps AI usage disclosure ledger
+├── src/                                              # Backend application source code
+│   ├── acquire/
+│   │   ├── __init__.py
+│   │   └── safe.py                                   # Resilient offline-first telemetry ingestion engine
+│   ├── agents/
+│   │   ├── __init__.py
+│   │   └── loop.py                                   # Autonomous climate reasoning engine
+│   ├── api/
+│   │   ├── __init__.py
+│   │   └── main.py                                   # FastAPI high-performance REST API backend
+│   └── compute/
+│       ├── __init__.py
+│       └── trend.py                                  # Mann-Kendall & Theil-Sen statistical calculation engine
+└── web/                                              # Offline-first interactive frontend dashboard
+    ├── index.html                                    # Responsive bilingual dashboard layout
+    ├── style.css                                     # Dark-mode GIS visual theme stylesheet
+    ├── app.js                                        # Core client controller & reactivity logic
+    ├── chart.umd.min.js                              # Bundled Chart.js library (zero CDN dependency)
+    ├── leaflet.js                                    # Bundled Leaflet GIS mapping engine
+    ├── leaflet.css                                   # Leaflet GIS stylesheet
+    ├── countries.geojson                             # Global boundary geometry layer
+    └── world_data.js                                 # Megacity spatial coordinates & baseline datasets
 ---
 
 ## Setup & Offline Verification
