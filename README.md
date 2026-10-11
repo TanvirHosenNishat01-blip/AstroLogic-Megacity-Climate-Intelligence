@@ -205,3 +205,24 @@ Open `http://127.0.0.1:8000` in your web browser. All statistical metrics, time-
 ## 📜 License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+## 📸 System Screenshots & UI Walkthrough
+
+### 🌍 Megacity Climate Intelligence - Dashboards
+| English Version | Bangla Version |
+| :---: | :---: |
+| ![Homepage English](<./Project_Demo_Image/Homepage English.png>) | ![Homepage Bangla](<./Project_Demo_Image/Homepage Bnagla.png>) |
+
+---
+
+### 📊 Data Analysis & Visualizations
+| Urban Heat Footprint | Target vs Baseline Comparison |
+| :---: | :---: |
+| ![Urban Heat Footprint](<./Project_Demo_Image/Urban Heat Footprint.png>) | ![Compare Graph](<./Project_Demo_Image/Comapre Grapgh.png>) |
+
+---
+
+### 🏛️ Authority Resilience Roadmap
+| Actionable Interventions |
+| :---: |
+| ![Authority Roadmap](<./Project_Demo_Image/Authority Roadmap.png>) |
