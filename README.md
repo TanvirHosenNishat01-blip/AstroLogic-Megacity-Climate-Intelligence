@@ -1,61 +1,90 @@
-
-```markdown
-# Megacity Climate Intelligence (MCI): Global Multi-Megacity Climate Intelligence & Urban Heat Shield Platform🌍🔬
-### An Offline-First Earth System Trend Engine for Megacity Thermal Attribution
+# Megacity Climate Intelligence (MCI) 🌍🔬
+> **An Offline-First Earth System Trend Engine for Megacity Thermal Attribution**
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![NASA Data](https://img.shields.io/badge/NASA%20Data-POWER%20%7C%20MODIS%20%7C%20VIIRS-orange.svg)](https://power.larc.nasa.gov/)
 [![Event](https://img.shields.io/badge/NASA%20Space%20Apps-2026-brightgreen.svg)](https://www.spaceappschallenge.org/)
 [![Status](https://img.shields.io/badge/Build-Offline--Ready-success.svg)](#setup--offline-verification)
 
-> **Official Entry for NASA International Space Apps Challenge 2026**  
-> **Challenge:** Be an Earth System Trend Detective!  
-> **Team:** AstroLogic (Dhaka, Bangladesh Local Event)  
-> **Target Domain:** Climate Informatics, Urban Heat Dynamics, and Deterministic Time-Series Analysis
+---
+
+> 🏆 **Official Entry for NASA International Space Apps Challenge 2026**  
+> 🎯 **Challenge Track:** Be an Earth System Trend Detective!  
+> 📍 **Team:** AstroLogic (Dhaka, Bangladesh Local Event)  
+> 🧠 **Target Domain:** Climate Informatics, Urban Heat Dynamics, Deterministic Time-Series Analysis
 
 ---
 
-## Executive Summary
+## 📑 Table of Contents
+- [Executive Summary](#executive-summary)
+- [Key Differentiators & Scientific Novelty](#key-differentiators--scientific-novelty)
+- [NASA & Partner Datasets](#nasa--partner-datasets)
+- [System Architecture](#system-architecture)
+- [Directory Structure](#directory-structure)
+- [Setup & Offline Verification](#setup--offline-verification)
+- [Team AstroLogic & Core Responsibilities](#team-astrologic--core-responsibilities)
+- [License](#license)
+
+---
+
+<span id="executive-summary"></span>
+## 📌 Executive Summary
 
 Urban centers face accelerating thermal stress driven by the compounding effects of broad planetary warming and aggressive, localized land-surface modifications. In densely populated global megacities, empirical climate assessments are frequently compromised by arbitrary smoothing, uncalibrated visualizations, or generative AI hallucinations.
 
-**Megacity Climate Intelligence (MCI) is an advanced, offline-ready climate platform designed to monitor and reduce extreme urban heat across major global cities. Using decades of NASA POWER daily weather data, the platform applies statistical tests (Mann-Kendall and Theil-Sen) to separate local city heat from regional climate changes. Beyond basic charts, MCI features a Population-Weighted Heat Exposure Index (PHEI) for vulnerable slum dwellers, a 2035 urban cooling simulator, an emergency SMS early warning system, and multi-agency municipal resilience roadmaps. Built with no login walls and full English-Bangla language support, MCI easily scales across Dhaka, Delhi, Jakarta, Cairo, and Lagos using simple JSON configurations.
+**Megacity Climate Intelligence (MCI)** is an offline-ready climate platform designed to monitor and isolate extreme urban heat across major global cities. Using decades of continuous NASA POWER daily weather telemetry, the platform applies deterministic statistical tests (**Mann-Kendall** and **Theil-Sen**) to disentangle localized microclimate warming from regional macro-trends. 
+
+Beyond standard time-series plotting, MCI features:
+- **Population-Weighted Heat Exposure Index (PHEI)** tailored for vulnerable informal settlements.
+- **C40 2035 Cooling Simulator** for counterfactual urban intervention testing.
+- **Zero-Bandwidth Citizen Alerts** delivering life-saving SMS broadcasts without requiring mobile internet.
+- **Bilingual Interface** supporting complete English and Bangla operational workflows.
 
 ---
 
-## Key Differentiators & Scientific Novelty
+<span id="key-differentiators--scientific-novelty"></span>
+<details open>
+<summary><h3>🔬 Key Differentiators & Scientific Novelty (Click to Collapse)</h3></summary>
 
 - **Deterministic Mathematics (Zero AI Hallucination):** Runs pure Python implementations of the non-parametric Mann-Kendall test ($S$, $Z$, $p$-value) and Theil-Sen slope estimation to compute monotonic trend velocity resilient to observational anomalies.
 - **Multi-Megacity Scope:** Fully modular configuration supporting immediate deployment across Dhaka, Delhi, Jakarta, Cairo, and Lagos.
 - **Nocturnal Anomaly Trapping:** Evaluates multi-decade daily minimum surface air temperatures ($T2M\_MIN$) to track dangerous shifts in nocturnal thermal retention and tropical night occurrences.
 - **Population-Weighted Heat Exposure Index (PHEI):** Computes a composite risk index (0–100) combining satellite thermal anomalies with population density and high-vulnerability tin-roof informal settlements.
 - **C40 2035 Mitigation Simulator:** Enables city planners to simulate counterfactual heat mitigation trajectories (e.g., cool roof retrofits, canopy expansion) through 2035.
-- **Zero-Bandwidth Citizen Alerts:** Automates life-saving cell-broadcast SMS warnings and links to toll-free municipal emergency hotlines (*16100#) for informal workers lacking smartphones or internet.
+- **Zero-Bandwidth Citizen Alerts:** Automates life-saving cell-broadcast SMS warnings and links to toll-free municipal emergency hotlines (`*16100#`) for informal workers lacking smartphones or internet.
 - **Full Data Provenance:** Features an interactive Provenance Drawer mapping every output directly back to source NASA POWER records and statistical execution modes (`live`, `cache`, `fixture`).
+
+</details>
 
 ---
 
-## NASA & Partner Datasets
+<span id="nasa--partner-datasets"></span>
+<details>
+<summary><h3>🛰️ NASA & Partner Datasets (Click to Expand)</h3></summary>
 
 - **NASA POWER Daily Point API:** Multi-decade daily temporal continuity (2004–2025) capturing $T2M$, $T2M\_MIN$, $T2M\_MAX$, and precipitation ($PRECTOTCORR$).
 - **NASA MODIS / VIIRS Continuity:** Day/night Land Surface Temperature (MOD11A1 / VNP11A1) and vegetation indices (MOD13A2 / VNP13A2).
 - **NASA GIBS:** Geospatial basemap overlays for high-contrast contextual visualization.
 
+</details>
+
 ---
 
-## System Architecture
+<span id="system-architecture"></span>
+<details open>
+<summary><h3>🏗️ System Architecture (Click to Collapse)</h3></summary>
 
 ```text
        [ NASA POWER Daily API & Local JSON Blueprints ]
                               │
                               ▼
-            [ Offline-Ready Data Cache / Parquet ]
+             [ Offline-Ready Data Cache / Parquet ]
                               │
                               ▼
      [ Deterministic Science Engine: src/compute (Mann-Kendall & Theil-Sen) ]
                               │
                               ▼
-        [ FastAPI Backend Core: /api/cities, /api/compare ]
+         [ FastAPI Backend Core: /api/cities, /api/compare ]
                               │
                               ▼
   [ Interactive Web Dashboard: Leaflet.js • Chart.js • Bilingual Toggle ]
@@ -63,28 +92,31 @@ Urban centers face accelerating thermal stress driven by the compounding effects
   ┌───────────────────────────┼───────────────────────────┐
   ▼                           ▼                           ▼
 [ PHEI Risk Score ]   [ C40 Simulator ]    [ Zero-Bandwidth SMS Alerts ]
-
 ```
+
+</details>
 
 ---
 
-## Directory Structure
+<span id="directory-structure"></span>
+<details>
+<summary><h3>📂 Directory Structure (Click to Expand)</h3></summary>
 
 ```text
 AstroLogic-Megacity-Climate-Intelligence/
 ├── .env.example                                      # Environment variables template
 ├── .gitignore                                        # Git untracked and cache exclusion rules
 ├── AGENTS.md                                         # Runtime agent boundary and execution protocols
-├── AstroLogic 240 Second  Presentation Slide With Live Demo Video.pdf # 240s pitch deck & demo video link
+├── AstroLogic 240 Second Presentation Slide.pdf      # 240s pitch deck & demo video link
 ├── LICENSE                                           # Apache-2.0 Open Source License
 ├── README.md                                         # Core project specification and system documentation
 ├── cache/                                            # Primary offline NASA POWER climate telemetry cache
-│   ├── power_cairo.json                              # Offline climate cache for Cairo
-│   ├── power_delhi.json                              # Offline climate cache for Delhi
-│   ├── power_dhaka.json                              # Offline climate cache for Dhaka
-│   ├── power_jakarta.json                            # Offline climate cache for Jakarta
-│   ├── power_lagos.json                              # Offline climate cache for Lagos
-│   └── power_sylhet.json                             # Offline climate cache for Sylhet
+│   ├── power_cairo.json
+│   ├── power_delhi.json
+│   ├── power_dhaka.json
+│   ├── power_jakarta.json
+│   ├── power_lagos.json
+│   └── power_sylhet.json
 ├── data/
 │   └── cities/                                       # Target megacity profiles (coordinates & metadata)
 │       ├── cairo.json
@@ -98,7 +130,7 @@ AstroLogic-Megacity-Climate-Intelligence/
 │   ├── power_dhaka.json
 │   ├── power_jakarta.json
 │   ├── power_lagos.json
-│   ├── power_sylhet.json
+│   └── power_sylhet.json
 │   └── sample_power.json
 ├── docs/
 │   └── AI_USE.md                                     # NASA Space Apps AI usage disclosure ledger
@@ -124,12 +156,14 @@ AstroLogic-Megacity-Climate-Intelligence/
     ├── leaflet.css                                   # Leaflet GIS stylesheet
     ├── countries.geojson                             # Global boundary geometry layer
     └── world_data.js                                 # Megacity spatial coordinates & baseline datasets
-
 ```
+
+</details>
 
 ---
 
-## Setup & Offline Verification
+<span id="setup--offline-verification"></span>
+## ⚡ Setup & Offline Verification
 
 ### 1. Environment Setup
 
@@ -140,7 +174,6 @@ python -m venv venv
 source venv/bin/activate       # On Windows Git Bash: source venv/Scripts/activate
 pip install -r requirements.txt
 cp .env.example .env
-
 ```
 
 ### 2. Launch in Deterministic Offline Mode
@@ -148,27 +181,27 @@ cp .env.example .env
 ```bash
 export OFFLINE=1               # On Windows Git Bash: export OFFLINE=1
 uvicorn src.api.main:app --reload --port 8000
-
 ```
 
-Open `http://127.0.0.1:8000` in your web browser. All statistical metrics, time-series curves, spatial pins, and provenance drawers operate strictly from local offline fixtures without external network dependencies.
+Open `http://127.0.0.1:8000` in your web browser. All statistical metrics, time-series curves, spatial pins, and provenance drawers operate strictly from local offline fixtures without external network calls.
 
 ---
 
+<span id="team-astrologic--core-responsibilities"></span>
 ## 👥 Team AstroLogic & Core Responsibilities
 
 | Member | Institution | Role & Technical Domain Focus |
-| :--- | :--- | :--- |
-| **Tanvir Hosen Nishat** | AIUB | **Team Lead • Scientific Engine & Offline Architecture Lead**<br>• **Deterministic Statistical Engine (`src/compute/trend.py`):** Pure Python Mann-Kendall test ($S$, $Z$, $p$-value) and Theil-Sen slope estimation for monotonic trend detection with zero AI hallucination.<br>• **Offline-First Core Architecture:** Built the zero-network runtime engine, resilient caching pipeline (`src/acquire/safe.py`), and local telemetry data stores (`cache/`, `demo_fixtures/`).<br>• **Backend Core & Systems:** FastAPI REST API implementation, end-to-end system integration, and version control governance. |
-| **Md. Abu Naif Siam** | BRACU | **Civic Tech & Presentation Lead**<br>• Zero-Bandwidth citizen SMS cell-broadcast architecture and municipal hotline (*16100#) protocol.<br>• 240-second pitch deck video narration, visual storytelling, and NASA AI disclosure ledger (`docs/AI_USE.md`). |
-| **MD. Farhan** | NSU | **Frontend & UI/UX Engineer**<br>• Interactive bilingual dashboard layout and responsive GIS styling (`web/style.css`).<br>• Map layer controls (`Leaflet.js`) and dynamic climatological curve rendering (`Chart.js`). |
-| **Ishtiaque Mahmud Sakif** | AIUB | **Data Ingestion & City Profiles Specialist**<br>• NASA POWER telemetry scraping, normalization, and JSON schema formulation.<br>• Curated megacity baseline profiles (`data/cities/`) and spatial boundary geometries (`web/countries.geojson`). |
-| **Mansura Jannat Monima** | AIUB | **Climate Impact & Vulnerability Modeler**<br>• Mathematical design of the Population-Weighted Heat Exposure Index (PHEI).<br>• C40 2035 urban mitigation simulation trajectories and informal tin-roof settlement vulnerability logic. |
-| **Hosni Rabbani** | BRACU | **Earth Observation & Remote Sensing Analyst**<br>• NASA satellite dataset alignment (MODIS/VIIRS LST & GIBS overlays).<br>• Multi-decade climatological baseline benchmarking (2004–2025) and nocturnal thermal retention ($T2M\_MIN$) validation. |
+| :--- | :---: | :--- |
+| **Tanvir Hosen Nishat** | **AIUB** | **Team Lead • Scientific Engine & Offline Architecture Lead**<br>• **Deterministic Statistical Engine (`src/compute/trend.py`):** Pure Python Mann-Kendall test ($S$, $Z$, $p$-value) and Theil-Sen slope estimation for monotonic trend detection with zero AI hallucination.<br>• **Offline-First Core Architecture:** Built the zero-network runtime engine, resilient caching pipeline (`src/acquire/safe.py`), and local telemetry data stores (`cache/`, `demo_fixtures/`).<br>• **Backend Core & Systems:** FastAPI REST API implementation, end-to-end system integration, and version control governance. |
+| **Md. Abu Naif Siam** | **BRACU** | **Civic Tech & Presentation Lead**<br>• Zero-Bandwidth citizen SMS cell-broadcast architecture and municipal hotline (`*16100#`) protocol.<br>• 240-second pitch deck video narration, visual storytelling, and NASA AI disclosure ledger (`docs/AI_USE.md`). |
+| **MD. Farhan** | **NSU** | **Frontend & UI/UX Engineer**<br>• Interactive bilingual dashboard layout and responsive GIS styling (`web/style.css`).<br>• Map layer controls (`Leaflet.js`) and dynamic climatological curve rendering (`Chart.js`). |
+| **Ishtiaque Mahmud Sakif** | **AIUB** | **Data Ingestion & City Profiles Specialist**<br>• NASA POWER telemetry scraping, normalization, and JSON schema formulation.<br>• Curated megacity baseline profiles (`data/cities/`) and spatial boundary geometries (`web/countries.geojson`). |
+| **Mansura Jannat Monima** | **AIUB** | **Climate Impact & Vulnerability Modeler**<br>• Mathematical design of the Population-Weighted Heat Exposure Index (PHEI).<br>• C40 2035 urban mitigation simulation trajectories and informal tin-roof settlement vulnerability logic. |
+| **Hosni Rabbani** | **BRACU** | **Earth Observation & Remote Sensing Analyst**<br>• NASA satellite dataset alignment (MODIS/VIIRS LST & GIBS overlays).<br>• Multi-decade climatological baseline benchmarking (2004–2025) and nocturnal thermal retention ($T2M\_MIN$) validation. |
+
 ---
 
-## License
+<span id="license"></span>
+## 📜 License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
-
-```
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
