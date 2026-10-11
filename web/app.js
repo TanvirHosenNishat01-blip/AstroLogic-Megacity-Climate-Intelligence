@@ -1,3 +1,5 @@
+
+// Global State Variables
 let geoCountriesData = null; 
 let charts = {};
 let currentLang = 'en';
@@ -6,6 +8,7 @@ let activeHorizon = 'short';
 let activePersona = 'overview';
 let lastResponseData = null;
 
+// Localization dictionaries for dropdown menus
 const DROPDOWN_OPTIONS = {
   en: {
     metrics: [
@@ -48,7 +51,7 @@ const DROPDOWN_OPTIONS = {
     ]
   }
 };
-
+// Epidemiological and Public Health static data (Localized)
 const HEALTH_DATA = {
   en: [
     {
@@ -215,7 +218,7 @@ const HEALTH_DATA = {
     }
   ]
 };
-
+// UI text translations
 const TRANSLATIONS = {
   en: {
     subtitle: "NASA Space Apps 2026 — Global Megacity Blueprint (Team AstroLogic)",
@@ -347,7 +350,9 @@ const STATIC_FALLBACK_CITIES = [
   { id: "jakarta", name: "Jakarta (Indonesia)" },
   { id: "lagos", name: "Lagos (Nigeria)" }
 ];
-
+//Attempts to fetch dynamic list from API; falls back to static list if offline/fails.
+ 
+async function initCitySelector() {
 async function initCitySelector() {
   const select = document.getElementById('city-select');
   try {
@@ -366,7 +371,7 @@ async function initCitySelector() {
   const currentVal = select.value || "dhaka";
   select.innerHTML = STATIC_FALLBACK_CITIES.map(c => `<option value="${c.id}" ${c.id === currentVal ? 'selected' : ''}>${c.name}</option>`).join('');
 }
-
+//Re-populates the select dropdowns based on the currently selected language.
 function populateDropdowns() {
   const tDrop = DROPDOWN_OPTIONS[currentLang];
 
