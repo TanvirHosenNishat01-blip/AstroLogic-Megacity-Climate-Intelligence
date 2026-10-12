@@ -202,9 +202,49 @@ Open `http://127.0.0.1:8000` in your web browser. All statistical metrics, time-
 ---
 
 <span id="license"></span>
-## 📜 License
+## 📜 License & Intellectual Property
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+<div align="center">
+
+### 🌍 Built for a More Climate-Resilient Future
+
+*Science • Transparency • Responsible Innovation*
+
+**© 2026 AstroLogic — Megacity Climate Intelligence (MCI)**
+
+</div>
+
+---
+
+### ⚖️ Open-Source License
+
+MCI is licensed under the **Apache License 2.0**.
+
+🔗 [View the Full License](LICENSE)
+
+You are welcome to explore, learn from, and build upon this project in accordance with the terms of the license. If you reuse or redistribute the project, please follow the applicable license requirements and provide appropriate attribution.
+
+### 🎥 Demo Video & Presentation Materials
+
+Our demonstration video and presentation materials showcase the research, engineering, and collaborative efforts behind MCI.
+
+Please respect the applicable copyright terms and obtain permission from the respective rights holders before using these materials in ways not already permitted.
+
+### 🛰️ Data, Libraries & Third-Party Resources
+
+MCI builds on scientific datasets, software libraries, and other external resources. Each remains subject to its own license, terms of use, and attribution requirements.
+
+### 🤝 A Note of Appreciation
+
+Thank you for exploring MCI and supporting responsible, transparent, and reproducible climate technology.
+
+**Made with curiosity and collaboration by Team AstroLogic** 🌱
+
+---
+
+<p align="center">
+  <a href="#-license--intellectual-property">⬆️ Back to License</a>
+</p>
 
 ## 📸 System Screenshots & UI Walkthrough
 
