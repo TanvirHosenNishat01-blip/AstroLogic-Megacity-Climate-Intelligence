@@ -1,0 +1,14 @@
+{
+  "id": "cairo",
+  "name": "Cairo",
+  "country": "Egypt",
+  "lang": "ar",
+  "lat": 30.0444,
+  "lon": 31.2357,
+  "agencies": {
+    "health": "Ministry of Health",
+    "water": "Cairo water company",
+    "municipal": "Cairo Governorate",
+    "planning": "Urban planning authority"
+  }
+}

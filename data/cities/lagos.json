@@ -1,0 +1,14 @@
+{
+  "id": "lagos",
+  "name": "Lagos",
+  "country": "Nigeria",
+  "lang": "yo",
+  "lat": 6.5244,
+  "lon": 3.3792,
+  "agencies": {
+    "health": "Lagos State Ministry of Health",
+    "water": "Lagos Water Corporation",
+    "municipal": "Lagos State Government",
+    "planning": "Lagos State Physical Planning"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "sylhet",
+  "name": "Sylhet",
+  "country": "Bangladesh",
+  "lang": "bn",
+  "lat": 24.8949,
+  "lon": 91.8687,
+  "agencies": {
+    "health": "Civil Surgeon Office, Sylhet",
+    "water": "Sylhet City Corporation",
+    "municipal": "Sylhet City Corporation",
+    "planning": "Sylhet City Corporation"
+  }
+}

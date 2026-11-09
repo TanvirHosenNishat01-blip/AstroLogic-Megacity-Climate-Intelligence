@@ -1,0 +1,14 @@
+{
+  "id": "dhaka",
+  "name": "Dhaka",
+  "country": "Bangladesh",
+  "lang": "bn",
+  "lat": 23.8103,
+  "lon": 90.4125,
+  "agencies": {
+    "health": "DGHS",
+    "water": "Dhaka WASA",
+    "municipal": "DNCC and DSCC",
+    "planning": "RAJUK"
+  }
+}
