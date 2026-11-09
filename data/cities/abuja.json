@@ -1,0 +1,14 @@
+{
+  "id": "abuja",
+  "name": "Abuja",
+  "country": "Nigeria",
+  "lang": "yo",
+  "lat": 9.0765,
+  "lon": 7.3986,
+  "agencies": {
+    "health": "FCT Health and Human Services",
+    "water": "FCT Water Board",
+    "municipal": "Abuja Municipal Area Council",
+    "planning": "Federal Capital Development Authority"
+  }
+}

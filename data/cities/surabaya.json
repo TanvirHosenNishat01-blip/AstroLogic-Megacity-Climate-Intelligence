@@ -1,0 +1,14 @@
+{
+  "id": "surabaya",
+  "name": "Surabaya",
+  "country": "Indonesia",
+  "lang": "id",
+  "lat": -7.2575,
+  "lon": 112.7521,
+  "agencies": {
+    "health": "Dinas Kesehatan Kota Surabaya",
+    "water": "PDAM Surya Sembada",
+    "municipal": "Pemerintah Kota Surabaya",
+    "planning": "Dinas Perumahan Kota Surabaya"
+  }
+}

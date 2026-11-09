@@ -1,0 +1,14 @@
+{
+  "id": "jakarta",
+  "name": "Jakarta",
+  "country": "Indonesia",
+  "lang": "id",
+  "lat": -6.2088,
+  "lon": 106.8456,
+  "agencies": {
+    "health": "Dinas Kesehatan DKI Jakarta",
+    "water": "PAM Jaya",
+    "municipal": "Pemerintah Provinsi DKI Jakarta",
+    "planning": "Dinas Cipta Karya"
+  }
+}

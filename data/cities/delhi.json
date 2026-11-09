@@ -1,0 +1,14 @@
+{
+  "id": "delhi",
+  "name": "Delhi",
+  "country": "India",
+  "lang": "hi",
+  "lat": 28.6139,
+  "lon": 77.2090,
+  "agencies": {
+    "health": "Delhi health services",
+    "water": "Delhi Jal Board",
+    "municipal": "Municipal Corporation of Delhi",
+    "planning": "Delhi Development Authority"
+  }
+}

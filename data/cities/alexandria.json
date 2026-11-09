@@ -1,0 +1,14 @@
+{
+  "id": "alexandria",
+  "name": "Alexandria",
+  "country": "Egypt",
+  "lang": "ar",
+  "lat": 31.2001,
+  "lon": 29.9187,
+  "agencies": {
+    "health": "Ministry of Health and Population",
+    "water": "Alexandria Water Company",
+    "municipal": "Alexandria Governorate",
+    "planning": "Alexandria Governorate"
+  }
+}
