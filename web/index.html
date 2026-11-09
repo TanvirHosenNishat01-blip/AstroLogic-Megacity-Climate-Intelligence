@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Megacity Climate Intelligence (MCI) · Earth Trend Detective</title>
+  <link rel="stylesheet" href="./leaflet.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body data-view="home">
+  <div class="shell">
+    <aside class="side">
+      <h1 id="title"></h1>
+      <p class="eyebrow" id="eyebrow"></p>
+      <div class="side-meta">
+        <p class="watching" id="watching"></p>
+        <span class="badge saved" id="net-badge"></span>
+      </div>
+      <p class="side-label" id="perspective"></p>
+      <nav class="nav" aria-label="Sections">
+        <p class="side-label nav-group" id="nav-project"></p>
+        <button type="button" id="view-home" aria-pressed="true"></button>
+        <button type="button" id="view-result" aria-pressed="false"></button>
+        <button type="button" id="view-map" aria-pressed="false"></button>
+        <button type="button" id="view-trends" aria-pressed="false"></button>
+        <button type="button" id="view-districts" aria-pressed="false"></button>
+        <div class="nav-more-wrap">
+          <button type="button" id="nav-more-toggle" class="nav-more-toggle" aria-expanded="false" aria-controls="nav-more-items">
+            <span class="nav-more-label" id="nav-more"></span>
+            <span class="nav-more-caret" aria-hidden="true">▾</span>
+          </button>
+          <div id="nav-more-items" class="nav-more-items" hidden>
+            <button type="button" id="view-events" aria-pressed="false"></button>
+            <button type="button" id="view-relate" aria-pressed="false"></button>
+            <button type="button" id="view-health" aria-pressed="false"></button>
+            <button type="button" id="view-plans" aria-pressed="false"></button>
+            <button type="button" id="view-lines" aria-pressed="false"></button>
+            <button type="button" id="view-field" aria-pressed="false"></button>
+            <button type="button" id="view-ready" aria-pressed="false"></button>
+            <button type="button" id="view-method" aria-pressed="false"></button>
+            <button type="button" id="view-learn" aria-pressed="false"></button>
+            <button type="button" id="view-voices" aria-pressed="false"></button>
+            <button type="button" id="view-about" aria-pressed="false"></button>
+          </div>
+        </div>
+      </nav>
+      <p class="keys" id="keys-hint"></p>
+      <button type="button" class="ghost nav-collapse" id="nav-collapse" aria-pressed="false"></button>
+    </aside>
+    <button type="button" id="nav-backdrop" class="nav-backdrop" hidden></button>
+
+    <main>
+      <div class="topbar">
+      <div class="filterbar globalbar">
+        <button type="button" class="ghost menu-toggle" id="nav-open"></button>
+        <button type="button" class="ghost" id="find-open"></button>
+        <div class="filter-group read-tools">
+        <label class="field"><span id="lbl-role"></span><select id="role"></select></label>
+        <label class="field" for="lang">
+          <span id="lang-label"></span>
+          <select id="lang">
+            <option value="en">English</option>
+            <option value="bn">বাংলা</option>
+            <option value="hi">हिन्दी</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ar">العربية</option>
+            <option value="yo">Yorùbá</option>
+          </select>
+        </label>
+        </div>
+      </div>
+      <details id="filter-fold" class="trend-only" open>
+        <summary id="filter-summary"></summary>
+      <form id="controls" class="filterbar">
+        <div class="filter-group">
+        <label class="field"><span id="lbl-country"></span><select id="pair"></select></label>
+        <label class="field"><span id="lbl-var"></span><select id="variable"></select></label>
+        <label class="field"><span id="lbl-season"></span><select id="season"></select></label>
+        <label class="field"><span id="lbl-from"></span><select id="from-year"></select></label>
+        <label class="field"><span id="lbl-to"></span><select id="to-year"></select></label>
+        <button type="submit" class="primary" id="apply"></button>
+        <button type="button" class="ghost" id="refresh"></button>
+        <div class="menu">
+          <button type="button" class="export" id="download-toggle" aria-expanded="false" aria-controls="download-panel"></button>
+          <div id="download-panel" class="report-dialog" role="dialog" aria-modal="true" aria-labelledby="file-label" hidden>
+            <p class="menu-label" id="file-label"></p>
+            <p id="report-where"></p>
+            <p class="menu-label" id="report-lang-label"></p>
+            <div id="report-langs" class="choice-grid"></div>
+            <p class="menu-label" id="report-format-label"></p>
+            <div id="report-formats" class="choice-list"></div>
+            <p class="menu-label" id="report-sections-label"></p>
+            <div id="report-sections" class="choice-list"></div>
+            <p class="menu-label" id="report-preview-label"></p>
+            <div id="report-preview" class="report-preview"></div>
+            <p class="status" id="report-status"></p>
+            <div class="next-actions">
+              <button type="button" class="primary" id="report-go"></button>
+              <button type="button" class="ghost" id="report-close"></button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </form>
+      </details>
+      <div id="filter-chips" class="filter-chips trend-only"></div>
+      <div id="saved-list" class="filter-chips trend-only"></div>
+      </div>
+      <p class="hint" id="scope-hint" hidden></p>
+      <p class="status" id="status"></p>
+      <p class="crumb" id="page-crumb" hidden></p>
+      <p class="hint" id="lang-hint"></p>
+      <div id="window-note" class="window-note" hidden>
+        <p id="window-text"></p>
+        <button type="button" class="primary" id="full-record"></button>
+      </div>
+      <section id="view-panel-home" class="view">
+        <div class="home-stage">
+          <img id="home-live" class="home-live" alt="">
+          <div class="home-veil" aria-hidden="true"></div>
+            <div class="home-copy">
+            <p class="home-greet" id="home-greet"></p>
+            <h2 id="home-title"></h2>
+            <p id="home-lead"></p>
+            <p id="home-formal"></p>
+            <div class="home-actions">
+              <button type="button" class="primary" id="home-go-trends"></button>
+              <button type="button" class="primary" id="home-go-check"></button>
+              <button type="button" class="primary" id="home-go-map"></button>
+              <button type="button" class="primary" id="home-go-events"></button>
+              <button type="button" class="primary" id="home-go-districts"></button>
+            </div>
+            <div class="home-status">
+              <p class="home-kicker" id="home-kicker"></p>
+              <div class="home-clock">
+                <p class="home-clock-time" id="home-time"></p>
+                <p class="home-clock-meta"><span id="home-date"></span><span id="home-zone"></span></p>
+                <p class="home-nasa" id="home-nasa"></p>
+              </div>
+              <p class="home-note" id="home-note"></p>
+            </div>
+          </div>
+          <article class="live-alert">
+            <div class="live-alert-top">
+              <p class="live-pill" id="home-alert-title"></p>
+              <button type="button" class="ghost" id="home-alert-refresh"></button>
+            </div>
+            <div id="home-alert-list"></div>
+            <p class="status" id="home-alert-status"></p>
+            <p class="live-alert-foot" id="home-alert-note"></p>
+          </article>
+        </div>
+        <section class="home-desk">
+          <header class="home-block">
+            <div class="glance-head">
+              <div class="glance-intro">
+                <h2 id="home-glance-title"></h2>
+                <p class="hint" id="home-glance-note"></p>
+              </div>
+              <div class="glance-filters">
+                <label class="field snapshot-field"><span id="lbl-snapshot-city"></span><select id="snapshot-city"></select></label>
+                <div class="snapshot-years">
+                  <label class="field snapshot-field"><span id="lbl-snapshot-from"></span><select id="snapshot-from"></select></label>
+                  <label class="field snapshot-field"><span id="lbl-snapshot-to"></span><select id="snapshot-to"></select></label>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div id="home-glance" class="glance"></div>
+          <section class="home-feature" id="home-relate">
+            <h2 id="home-relate-title"></h2>
+            <div id="home-relate-body"></div>
+          </section>
+          <section class="home-feature" id="home-feature">
+            <h2 id="home-feature-title"></h2>
+            <div id="home-feature-body"></div>
+          </section>
+          <div class="home-lower">
+            <form id="home-quick" class="panel">
+              <h2 id="home-quick-title"></h2>
+              <div class="filter-group">
+                <label class="field"><span id="home-pair-label"></span><select id="home-pair"></select></label>
+                <label class="field"><span id="home-var-label"></span><select id="home-var"></select></label>
+                <label class="field"><span id="home-from-label"></span><select id="home-from"></select></label>
+                <label class="field"><span id="home-to-label"></span><select id="home-to"></select></label>
+                <button type="submit" class="primary" id="home-start"></button>
+              </div>
+            </form>
+            <section class="home-recent-block">
+              <h2 id="home-recent-title"></h2>
+              <div id="home-recent" class="filter-chips"></div>
+            </section>
+          </div>
+        </section>
+        <p class="home-reading" id="home-reading" hidden></p>
+      </section>
+
+      <section id="view-panel-result" class="view" hidden>
+        <div class="locator-slot">
+          <aside id="locator" class="locator">
+            <p class="locator-kicker" id="locator-kicker"></p>
+            <div id="locator-map" role="region" aria-label="City locator"></div>
+            <p class="map-legend" id="locator-legend"></p>
+            <p class="locator-caption" id="locator-caption"></p>
+          </aside>
+        </div>
+        <p class="lede" id="lede"></p>
+        <section id="answer" class="answer" aria-live="polite"></section>
+        <section id="result-visual" class="panel">
+          <p class="year-read" id="result-year"></p>
+          <div class="chart-box"><canvas id="result-canvas"></canvas></div>
+          <p class="hint" id="result-chart-note"></p>
+        </section>
+        <section id="story" class="panel" hidden></section>
+        <section id="how" class="panel"></section>
+        <section id="watch" class="panel watch" hidden></section>
+        <div class="next-actions">
+          <button type="button" class="primary" id="go-trends"></button>
+          <button type="button" class="ghost" id="go-health"></button>
+          <button type="button" class="ghost" id="go-plans"></button>
+          <button type="button" class="ghost" id="go-events"></button>
+          <button type="button" class="ghost" id="copy-answer"></button>
+        </div>
+        <details id="relate-fold" class="panel"></details>
+        <section id="metrics" class="metrics"></section>
+        <section id="board" class="panel board" hidden></section>
+        <div class="targets" id="targets"></div>
+      </section>
+
+      <section id="view-panel-map" class="view" hidden>
+        <div class="event-filters" id="map-layers">
+          <button type="button" class="ghost" id="map-layer-nasa" aria-pressed="true"></button>
+          <button type="button" class="ghost" id="map-layer-outline" aria-pressed="false"></button>
+        </div>
+        <section class="map-wrap">
+          <div id="map" role="region" aria-label="City map"></div>
+        </section>
+        <p class="map-legend" id="map-legend">
+          <span class="swatch a"></span><span id="legend-a"></span>
+          <span class="swatch b"></span><span id="legend-b"></span>
+        </p>
+        <p class="hint" id="map-note"></p>
+      </section>
+
+      <section id="view-panel-trends" class="view" hidden>
+        <div class="locator-slot"></div>
+        <p class="trend-lead" id="trend-lead"></p>
+        <p class="year-read" id="year-read"></p>
+        <div class="measure-strip" id="trend-board"></div>
+        <section class="grid" id="cards"></section>
+        <section class="panel" id="diff"></section>
+      </section>
+
+      <section id="view-panel-relate" class="view" hidden>
+        <div class="locator-slot"></div>
+        <h2 id="relate-title"></h2>
+        <p class="hint" id="relate-note"></p>
+        <div class="event-filters" id="relate-tools"></div>
+        <div id="relate-read"></div>
+        <div id="relate-matrix" class="heat-wrap"></div>
+        <div class="chart-box"><canvas id="relate-canvas"></canvas></div>
+        <div id="relate-sparks" class="glance"></div>
+        <details class="fold" id="relate-how"></details>
+      </section>
+
+      <section id="view-panel-health" class="view" hidden>
+        <div class="locator-slot"></div>
+        <section class="panel sample" id="sample"></section>
+        <section class="panel" id="health"></section>
+      </section>
+
+      <section id="view-panel-plans" class="view" hidden>
+        <div class="locator-slot"></div>
+        <section class="panel" id="plans"></section>
+      </section>
+
+      <section id="view-panel-method" class="view" hidden>
+        <div class="locator-slot"></div>
+        <section class="panel" id="method"></section>
+      </section>
+
+      <section id="view-panel-ready" class="view" hidden>
+        <section class="panel">
+          <h2 id="ready-title"></h2>
+          <p class="hint" id="ready-note"></p>
+          <div class="health-grid" id="ready-list"></div>
+        </section>
+      </section>
+
+      <section id="view-panel-districts" class="view" hidden>
+        <section class="district-center" id="district-center">
+          <h2 id="district-title"></h2>
+          <p class="hint" id="district-note"></p>
+          <div class="filter-group">
+            <label class="field"><span id="district-division-label"></span><select id="district-division"></select></label>
+            <label class="field"><span id="district-pick-label"></span><select id="district-pick"></select></label>
+          </div>
+          <section class="district-overview" id="district-overview">
+            <h3 id="district-overview-title"></h3>
+            <div class="district-overview-row" id="district-overview-row"></div>
+          </section>
+          <div class="district-layout">
+            <div>
+              <div id="district-map" role="region" aria-label="Bangladesh districts"></div>
+              <p class="hint" id="district-boundary"></p>
+            </div>
+            <article class="district-card" id="district-card">
+              <h3 id="district-name"></h3>
+              <p class="hint" id="district-meta"></p>
+              <p class="district-kind" id="district-obs-label"></p>
+              <p id="district-obs"></p>
+              <p class="district-kind" id="district-forecast-label"></p>
+              <p id="district-forecast"></p>
+              <p class="district-kind" id="district-warn-label"></p>
+              <p id="district-warn"></p>
+              <p class="district-kind" id="district-sat-label"></p>
+              <p id="district-sat"></p>
+              <p class="district-kind" id="district-impact-label"></p>
+              <p id="district-impact"></p>
+              <p class="status" id="district-loading" hidden></p>
+              <p class="hint" id="district-disclaimer"></p>
+              <div class="next-actions">
+                <button type="button" class="primary" id="district-save"></button>
+                <button type="button" class="ghost" id="district-reset"></button>
+                <button type="button" class="ghost" id="district-trend"></button>
+              </div>
+              <p class="district-kind" id="district-links-label"></p>
+              <div class="next-actions" id="district-links"></div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section id="view-panel-events" class="view" hidden>
+        <section class="panel">
+          <h2 id="events-title"></h2>
+          <p class="hint" id="events-note"></p>
+          <p id="events-role"></p>
+          <div class="event-filters" id="event-filters"></div>
+          <p class="hint" id="events-rain"></p>
+          <p class="status" id="events-status"></p>
+          <button type="button" class="ghost" id="events-refresh"></button>
+          <div id="event-list"></div>
+        </section>
+      </section>
+
+      <section id="view-panel-learn" class="view" hidden>
+        <section class="panel">
+          <h2 id="learn-title"></h2>
+          <p class="hint" id="learn-note"></p>
+          <div class="event-filters" id="lesson-filters"></div>
+          <div class="health-grid" id="learn-list"></div>
+          <div class="player" id="player-wrap" hidden>
+            <iframe id="player" title="Lesson" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <p id="player-caption"></p>
+          </div>
+        </section>
+      </section>
+
+      <section id="view-panel-field" class="view" hidden>
+        <section class="panel">
+          <h2 id="field-title"></h2>
+          <p class="hint" id="field-note"></p>
+          <form id="field-form" class="filterbar">
+            <label class="field"><span id="lbl-place"></span><select id="place"></select></label>
+            <label class="field" id="field-lat-field"><span id="lbl-lat"></span><input id="field-lat" inputmode="decimal" autocomplete="off"></label>
+            <label class="field" id="field-lon-field"><span id="lbl-lon"></span><input id="field-lon" inputmode="decimal" autocomplete="off"></label>
+            <label class="field"><span id="lbl-field-who"></span><select id="field-who"></select></label>
+            <button type="submit" class="primary" id="field-go"></button>
+          </form>
+          <p class="status" id="field-status"></p>
+          <section class="metrics" id="field-cards"></section>
+          <p id="field-read"></p>
+        </section>
+      </section>
+
+      <section id="view-panel-about" class="view" hidden>
+        <section class="panel">
+          <h2 id="about-title"></h2>
+          <p class="hint" id="about-lead"></p>
+          <div id="about-list" class="about-grid"></div>
+        </section>
+      </section>
+
+      <section id="view-panel-lines" class="view" hidden>
+        <section class="panel">
+          <h2 id="lines-title"></h2>
+          <p class="hint" id="lines-note"></p>
+          <div class="lines-tools">
+            <label class="field"><span id="lbl-lines-pick"></span><select id="lines-pick"></select></label>
+            <label class="field"><span id="lbl-lines-search"></span><input id="lines-search" type="search" autocomplete="off"></label>
+          </div>
+          <p class="hint" id="lines-count"></p>
+          <p class="hint" id="lines-empty" hidden></p>
+          <div id="lines-list" class="grid"></div>
+        </section>
+      </section>
+
+      <section id="view-panel-voices" class="view" hidden>
+        <section class="panel">
+          <h2 id="voices-title"></h2>
+          <p class="hint" id="voices-note"></p>
+          <form id="voice-form" class="filterbar" novalidate>
+            <label class="field"><span id="lbl-voice-name"></span><input id="voice-name" maxlength="40" autocomplete="name" required></label>
+            <label class="field"><span id="lbl-voice-country"></span><select id="voice-country" required></select></label>
+            <label class="field" id="voice-country-other-wrap" hidden><span id="lbl-voice-country-other"></span><input id="voice-country-other" maxlength="40" autocomplete="off"></label>
+            <label class="field"><span id="lbl-voice-role"></span><select id="voice-role"></select></label>
+            <label class="field voice-text"><span id="lbl-voice-text"></span><textarea id="voice-text" maxlength="400" rows="3" required></textarea></label>
+            <p class="field-error" id="voice-error" role="alert" hidden></p>
+            <button type="submit" class="primary" id="voice-send"></button>
+          </form>
+          <div id="voice-list"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div id="palette" class="palette" hidden>
+    <div class="palette-card" role="dialog" aria-modal="true" aria-labelledby="palette-label">
+      <label class="field" id="palette-label"><span id="palette-kicker"></span>
+        <input id="palette-input" type="search" autocomplete="off">
+      </label>
+      <div id="palette-list" role="listbox"></div>
+    </div>
+  </div>
+  <aside id="tour" class="tour" hidden>
+    <p id="tour-text"></p>
+    <div class="home-actions">
+      <button type="button" class="primary" id="tour-next"></button>
+      <button type="button" class="ghost" id="tour-skip"></button>
+    </div>
+  </aside>
+
+  <script src="./leaflet.js"></script>
+  <script src="./world_data.js"></script>
+  <script src="./chart.umd.min.js"></script>
+  <script src="./i18n.js"></script>
+  <script src="./places.js"></script>
+  <script src="./helplines.js"></script>
+  <script src="./report_extra.js"></script>
+  <script src="./districts.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
