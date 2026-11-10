@@ -173,22 +173,90 @@ python -m unittest discover -s tests -v
 
 ```
 AstroLogic/
-├── data/                       # Local runtime storage (community voices, etc.)
-├── demo_fixtures/              # Pre-bundled NASA POWER datasets (2001–2025)
-├── docs/                       # Project documentation
-│   ├── AI_USE.md               # Ethical disclosure of AI assistant usage
-│   ├── DATA_SOURCES.md         # Exhaustive data provenance & feed limits
-│   └── PROJECT_PAGE.md         # NASA Space Apps Challenge submission draft
-├── src/                        # Backend Python services
-│   ├── acquire/                # NASA POWER / GIBS / FIRMS / EONET fetchers
-│   ├── api/                    # FastAPI web server and endpoints
-│   └── compute/                # Deterministic Mann-Kendall, Theil-Sen & Pearson/Spearman math
-├── tests/                      # Python unit tests (29 tests)
-└── web/                        # Frontend application (Vanilla JS, CSS3, Leaflet)
-    ├── app.js                  # Client logic, rendering, event handling
-    ├── i18n.js                 # 6-Language translation catalog
-    ├── index.html              # Single Page Application structure
-    └── style.css               # Responsive design, accessibility, and RTL
+├── .env.example                               # Environment variable template
+├── .gitignore                                 # Git untracked and ignored files configuration
+├── AGENTS.md                                  # Autonomous agent loop and developer guide
+├── CLAUDE.md                                  # Project architecture and coding guidelines
+├── LICENSE                                    # Open source license (MIT)
+├── README.md                                  # Main project documentation (MCI overview, setup, API)
+├── requirements.txt                           # Python dependencies manifest
+│
+├── cache/                                     # Local runtime cache for live fetched satellite data
+│   └── .gitkeep
+│
+├── data/                                      # Runtime application storage and local database
+│   ├── cities/                                # Pre-processed climatological baseline metrics
+│   │   ├── abuja.json
+│   │   ├── alexandria.json
+│   │   ├── cairo.json
+│   │   ├── delhi.json
+│   │   ├── dhaka.json
+│   │   ├── jakarta.json
+│   │   ├── kolkata.json
+│   │   ├── lagos.json
+│   │   ├── surabaya.json
+│   │   └── sylhet.json
+│   └── voices.json                            # Citizen-science and community observation records
+│
+├── demo_fixtures/                             # Offline NASA POWER 24-year (2001–2025) historical series
+│   ├── power_abuja.json
+│   ├── power_alexandria.json
+│   ├── power_cairo.json
+│   ├── power_delhi.json
+│   ├── power_dhaka.json
+│   ├── power_jakarta.json
+│   ├── power_kolkata.json
+│   ├── power_lagos.json
+│   ├── power_surabaya.json
+│   ├── power_sylhet.json
+│   └── sample_power.json
+│
+├── docs/                                      # NASA Space Apps dossier and verification documentation
+│   ├── AI_USE.md                              # Ethical disclosure and AI assistant utilization record
+│   ├── AstroLogic-meeting-5-Nov-2026.pdf      # Team sprint and design log (PDF)
+│   ├── DATA_SOURCES.md                        # Exhaustive NASA & national Earth Observation provenance guide
+│   ├── PROJECT_PAGE.md                        # Official NASA Space Apps submission draft
+│   └── meeting-2026-11-05.html                # Team deliberation minutes (HTML)
+│
+├── src/                                       # Backend Python services and computational core
+│   ├── acquire/                               # Live ingestion, telemetry parsing, and offline fallbacks
+│   │   ├── __init__.py
+│   │   ├── build_cache.py                     # NASA POWER cache generation script
+│   │   ├── district_alert.py                  # 64-district live telemetry (FIRMS, BMD, FFWC)
+│   │   └── safe.py                            # Offline boundary guards and zero-hallucination validation
+│   ├── agents/                                # Autonomous climate investigation pipeline
+│   │   ├── __init__.py
+│   │   └── loop.py
+│   ├── api/                                   # FastAPI web service and endpoints
+│   │   ├── __init__.py
+│   │   └── main.py                            # REST API, Challenge 02 JSON Result Object & export routes
+│   └── compute/                               # Deterministic statistical engines (Challenge 02)
+│       ├── __init__.py
+│       ├── correlate.py                       # Bivariate Pearson (r) & Spearman (rho) correlation matrix
+│       └── trend.py                           # Non-parametric Mann-Kendall test & Theil-Sen slope estimator
+│
+├── tests/                                     # Automated test suite (29 tests, 100% passing)
+│   ├── test_correlate.py                      # Correlation coefficients and Student's t-test verification
+│   ├── test_district_alert.py                 # District geo-containment, flood, and fire alert tests
+│   ├── test_records.py                        # City series isolation and data integrity tests
+│   └── test_trend.py                          # Mann-Kendall statistics, p-values, and Sen slope tests
+│
+└── web/                                       # Frontend Single Page Application (SPA)
+    ├── .gitkeep
+    ├── app.js                                 # Client state, routing, Chart.js views, and filter controls
+    ├── bd_districts.geojson                   # High-precision GeoJSON boundaries for all 64 BD districts
+    ├── chart.umd.min.js                       # Chart.js visualization engine
+    ├── countries.geojson                      # Global administrative territory boundaries
+    ├── districts.js                           # 64-district bilingual catalog and division mapping
+    ├── helplines.js                           # Official national and regional emergency helplines
+    ├── i18n.js                                # 6-language translation catalog (EN, BN, HI, ID, AR, YO)
+    ├── index.html                             # Semantic HTML5 layout and application shell
+    ├── leaflet.css                            # Cartographic mapping UI styles
+    ├── leaflet.js                             # Leaflet interactive map library
+    ├── places.js                              # Global megacity metadata and comparative pair definitions
+    ├── report_extra.js                        # Multi-format scientific report generation engine
+    ├── style.css                              # Responsive glassmorphism theme, card grid, and RTL styles
+    └── world_data.js                          # Offline global continental and shoreline geometries
 ```
 
 ---
