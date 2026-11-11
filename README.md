@@ -262,6 +262,20 @@ AstroLogic/
 
 ---
 
+## 📸 Project Screenshots
+
+### 🏠 Home Dashboard
+
+![MCI Home Dashboard](screenshots/WhatsApp%20Image%202026-11-11%20at%202.05.13%20PM.jpeg)
+
+### 📈 Climate Trend Analysis
+
+![Climate Trends](screenshots/4.jpeg)
+
+### 🇧🇩 Bangladesh Climate Monitoring
+
+![Bangladesh Climate Monitor](screenshots/6.jpeg)
+
 ## ⚖️ Scientific Integrity & Ethics
 
 - **Zero AI in Calculations:** Neither large language models nor predictive AI generate numerical claims. All calculations stem from peer-reviewed statistical algorithms (Mann 1945, Kendall 1975, Sen 1968, Gilbert 1987).
