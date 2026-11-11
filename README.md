@@ -262,19 +262,80 @@ AstroLogic/
 
 ---
 
+
+---
+
 ## 📸 Project Screenshots
 
-### 🏠 Home Dashboard
+Explore the user interface and core functionalities of **Megacity Climate Intelligence (MCI)**, developed by **Team AstroLogic** for the **NASA International Space Apps Challenge 2026**.
+
+### 🏠 1. Home Dashboard & Live Earth Alerts
+
+The main dashboard introduces the MCI platform and provides quick access to climate investigations, Earth observation trends, environmental maps, and real-time natural hazard information.
 
 ![MCI Home Dashboard](screenshots/WhatsApp%20Image%202026-11-11%20at%202.05.13%20PM.jpeg)
 
-### 📈 Climate Trend Analysis
+---
 
-![Climate Trends](screenshots/4.jpeg)
+### 🔍 2. Climate Investigation & Results Overview
 
-### 🇧🇩 Bangladesh Climate Monitoring
+The Results & Analysis interface presents scientifically validated climate trend findings, including statistical significance, temperature changes, observation periods, and NASA data sources.
 
-![Bangladesh Climate Monitor](screenshots/6.jpeg)
+![Climate Investigation Results](screenshots/2.jpeg)
+
+---
+
+### 📊 3. Environmental Analysis & Climate Indicators
+
+A comprehensive analytical overview comparing multiple NASA POWER environmental parameters, including mean air temperature, night-time minimum temperature, daytime maximum temperature, and daily precipitation.
+
+![Environmental Analysis and Climate Indicators](screenshots/3.jpeg)
+
+---
+
+### 📈 4. Historical Climate Trends & City Comparisons
+
+Interactive climate trend visualizations comparing Jakarta and Surabaya, Indonesia. The platform displays historical temperature observations, long-term trend lines, and statistically confirmed or unconfirmed changes.
+
+![Historical Climate Trends](screenshots/4.jpeg)
+
+---
+
+### 🌡️ 5. Comparative Climate Difference Analysis
+
+A detailed comparison of climate trends between two megacities, highlighting differences in observed temperatures, annual variability, and long-term changes.
+
+![Comparative Climate Difference Analysis](screenshots/5.jpeg)
+
+---
+
+### 🇧🇩 6. Bangladesh District-Level Climate Monitoring
+
+An interactive geographical monitoring interface providing district-level environmental information across Bangladesh, including rainfall forecasts, flood conditions, fire detection, and cyclone bulletins.
+
+![Bangladesh District Climate Monitoring](screenshots/6.jpeg)
+
+---
+
+### 🚨 7. Natural Disasters & Real-Time Hazard Monitoring
+
+The Current Events dashboard integrates published hazard information from NASA EONET and USGS, allowing users to explore earthquakes, severe storms, floods, wildfires, volcanic activity, and other environmental events.
+
+![Natural Disasters and Hazard Monitoring](screenshots/7.jpeg)
+
+---
+
+### 🛰️ 8. Platform Architecture, Scientific Integrity & Core Features
+
+An overview of the MCI platform's scientific methodology, NASA challenge alignment, Earth observation data sources, investigative capabilities, adaptive user experiences, and commitment to data transparency.
+
+![MCI Platform Features and Scientific Integrity](screenshots/8.jpeg)
+
+---
+
+**Developed by Team AstroLogic | NASA International Space Apps Challenge 2026**
+
+*Be an Earth System Trend Detective — Transforming Earth observation data into meaningful climate insights.*
 
 ## ⚖️ Scientific Integrity & Ethics
 
