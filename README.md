@@ -348,19 +348,203 @@ An overview of the MCI platform's scientific methodology, NASA challenge alignme
 
 ---
 
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
-You are free to use, modify, and distribute this software
-in accordance with the terms of the license.
-
-See the [LICENSE](LICENSE) file for more details.
 
 ---
 
-**Developed by Team AstroLogic**  
-**NASA International Space Apps Challenge 2026**
+## 📜 License & Usage Rights
 
+### MIT Open-Source License
 
-**Team AstroLogic** · *NASA International Space Apps Challenge 2026*
+**Megacity Climate Intelligence (MCI)** is an open-source
+project developed by **Team AstroLogic** for the
+**NASA International Space Apps Challenge 2026**.
+
+The software is distributed under the **MIT License**,
+a permissive open-source license that encourages
+collaboration, research, innovation, and responsible
+software development.
+
+For the complete legal terms, please refer to the
+[LICENSE](LICENSE) file included in this repository.
+
+### 1. Permissions and Allowed Usage
+
+Under the MIT License, users are permitted to:
+
+- **Use:** Run and utilize the software for personal,
+  educational, academic, research, or commercial purposes.
+
+- **Modify:** Modify, improve, or extend the source code
+  to develop additional functionalities.
+
+- **Distribute:** Share original or modified copies of
+  the software with others.
+
+- **Commercial Use:** Incorporate the software into
+  commercial products or services.
+
+- **Private Use:** Use the software within private
+  organizations or internal research projects.
+
+- **Research and Education:** Use the platform to study
+  environmental trends, climate statistics, Earth
+  observation data, and scientific visualization.
+
+### 2. License Conditions
+
+Anyone using, modifying, or distributing this software
+must comply with the following requirements:
+
+- Preserve the original copyright notice.
+- Include the MIT License text in copies or substantial
+  portions of the software.
+- Respect applicable licenses and usage conditions of
+  third-party dependencies, datasets, and resources.
+- Avoid representing modified versions as official
+  releases of Team AstroLogic without authorization.
+
+**Note:** The final two points are project guidance
+and are not additional conditions of the MIT License.
+
+### 3. Third-Party Data Sources and Attribution
+
+MCI integrates publicly accessible Earth observation,
+meteorological, and environmental information from
+several independent scientific organizations.
+
+These sources include:
+
+| Data Provider | Purpose |
+|---|---|
+| NASA POWER | Historical temperature, rainfall, and solar radiation observations |
+| NASA GIBS | Satellite imagery and Earth observation visualization |
+| NASA FIRMS | Active fire and thermal anomaly observations |
+| NASA EONET | Published natural hazard events |
+| USGS | Earthquake and seismic activity information |
+| Bangladesh Meteorological Department (BMD) | Weather forecasts and cyclone bulletins |
+| Flood Forecasting and Warning Centre (FFWC) | River monitoring and flood-related information |
+
+The MIT License applies to the original software
+distributed by this project.
+
+It does not automatically grant ownership of,
+or additional rights to, external datasets,
+satellite imagery, trademarks, institutional
+logos, or third-party software components.
+
+Users must follow the applicable attribution,
+licensing, and redistribution requirements
+of the respective data providers.
+
+The inclusion of data from NASA or any other
+organization does not imply endorsement,
+certification, or official partnership.
+
+### 4. Scientific and Statistical Disclaimer
+
+MCI provides climate information through
+computational analysis of environmental observations.
+
+The platform uses established statistical methods,
+including:
+
+- Mann–Kendall trend significance testing
+- Theil–Sen slope estimation
+- Pearson correlation analysis
+- Spearman rank correlation analysis
+
+Analytical results depend on data availability,
+quality, temporal coverage, geographic scope,
+and the selected statistical assumptions.
+
+A statistically significant trend does not, by
+itself, establish the cause of that trend.
+
+Although the platform emphasizes transparent
+and reproducible methods, the accuracy,
+completeness, and suitability of individual
+results cannot be guaranteed for every use case.
+
+Users should independently verify important
+scientific findings before relying on them
+for research, policy, or operational decisions.
+
+### 5. Public Safety and Emergency Disclaimer
+
+MCI is designed for environmental research,
+education, climate awareness, and decision support.
+
+**It is not an official disaster warning,
+emergency response, or evacuation system.**
+
+The platform may display information about:
+
+- Earthquakes
+- Flood conditions
+- Wildfires and thermal anomalies
+- Severe storms and cyclones
+- Rainfall and temperature conditions
+
+Such information may be delayed, incomplete,
+or unavailable depending on the source.
+
+For emergency decisions, users should consult
+the relevant government agencies and authorized
+emergency management authorities.
+
+### 6. Software Warranty and Liability
+
+The software is provided **"AS IS"**, without
+warranty of any kind, express or implied.
+
+The copyright holders and contributors are not
+liable for claims, damages, or other liabilities
+arising from the use of the software, subject
+to applicable law.
+
+The legally controlling warranty disclaimer
+and limitation of liability are contained in
+the [LICENSE](LICENSE) file.
+
+### 7. Contributions and Community Development
+
+Team AstroLogic welcomes constructive contributions
+that improve the platform's functionality,
+accessibility, scientific transparency,
+documentation, and reliability.
+
+Contributors are encouraged to:
+
+- Follow the project's existing coding conventions.
+- Document substantial modifications.
+- Reference appropriate scientific data sources.
+- Test changes before submitting pull requests.
+- Respect third-party intellectual property rights.
+- Maintain transparency in scientific calculations.
+
+Contributions are subject to the project's
+applicable licensing arrangements.
+
+### 8. Project Attribution
+
+**Project:** Megacity Climate Intelligence (MCI)
+
+**Developed by:** Team AstroLogic
+
+**Competition:** NASA International Space Apps
+Challenge 2026
+
+**Challenge:** Be an Earth System Trend Detective
+
+**License:** MIT License
+
+**Repository:** [Megacity Climate Intelligence](https://github.com/TanvirHosenNishat01-blip/AstroLogic-Megacity-Climate-Intelligence)
+
+---
+
+**Megacity Climate Intelligence (MCI)**
+
+*Discover the Data. Detect the Trend. Understand Our Planet.*
+
+**Developed by Team AstroLogic**
+
