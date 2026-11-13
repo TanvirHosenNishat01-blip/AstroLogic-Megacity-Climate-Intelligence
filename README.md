@@ -4,8 +4,14 @@
 > **Challenge:** *Be an Earth System Trend Detective*  
 > **Team:** Team AstroLogic  
 > **Platform Name:** Megacity Climate Intelligence (MCI)<br>
-> **Overall Project Overview (Drive Video Link):** https://drive.google.com/file/d/1cqLivEyvOzLIHE2nU7Fx1IITtAuyN7Pr/view?usp=sharing
+> **Overall Project Overview (Drive Video Link):** https://drive.google.com/file/d/1cqLivEyvOzLIHE2nU7Fx1IITtAuyN7Pr/view?usp=sharing> ** 
+> **240 s Youtube Video Link:** https://youtu.be/7Bc2XX1VSTE
+>  [**Note:** This video was created with the assistance of AI tools.]
 
+>**AI Tools Used:**
+>- **Claude Opus 5.5** — Video generation and creative assistance
+>- **ElevenLabs AI** — Speech generation
+>- **Gemini 4 Argon** — Overall Idea
 ---
 
 ## 🌍 Executive Summary
