@@ -6,9 +6,8 @@
 > **Platform Name:** Megacity Climate Intelligence (MCI)<br>
 > **Overall Project Overview (Drive Video Link):** https://drive.google.com/file/d/1cqLivEyvOzLIHE2nU7Fx1IITtAuyN7Pr/view?usp=sharing>  <br>
 > **240 s Youtube Video Link:** https://youtu.be/7Bc2XX1VSTE
->  [**Note:** This video was created with the assistance of AI tools.]
-
->**AI Tools Used:**
+>  [**Note:** This video was created with the assistance of AI tools.] <br>
+>**AI Tools Used For YouTube Video**
 >- **Claude Opus 5.5** — Video generation and creative assistance
 >- **ElevenLabs AI** — Speech generation
 >- **Gemini 4 Argon** — Overall Idea
