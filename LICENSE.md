@@ -1,0 +1,68 @@
+
+# MIT License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![NASA Space Apps 2026](https://img.shields.io/badge/NASA_Space_Apps-2026-0B3D91.svg)](https://www.spaceappschallenge.org/)
+[![Project: MCI](https://img.shields.io/badge/Project-Megacity_Climate_Intelligence-00d2ff.svg)](https://github.com/TanvirHosenNishat01-blip/AstroLogic-Megacity-Climate-Intelligence)
+
+**Copyright (c) 2026 [Team AstroLogic](https://github.com/TanvirHosenNishat01-blip/AstroLogic-Megacity-Climate-Intelligence)**  
+* **Competition:** [NASA International Space Apps Challenge 2026](https://www.spaceappschallenge.org/)
+* **Challenge:** [*Be an Earth System Trend Detective!*](https://www.spaceappschallenge.org/2026/challenges/be-an-earth-system-trend-detective/)
+* **Project Name:** **Megacity Climate Intelligence (MCI)**
+* **Team Members:** Tanvir Hosen Nishat, Md. Abu Naif Siam, Mansura Jannat Monima, Hosni Rabbani, MD. Farhan, Ishtiaque Mahmud Sakif
+* **Academic Alliance:** AIUB • BRACU • NSU
+
+---
+
+## 📜 Legal Agreement & Grant of Rights
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the **"Software"**), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+> The above copyright notice and this permission notice shall be included in all
+> copies or substantial portions of the Software.
+
+---
+
+## ⚖️ Warranty & Liability Disclaimer
+
+```text
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+---
+
+## 🛰️ Third-Party Data Sources & Live Hyperlinks
+
+This Software accesses and visualizes publicly accessible Earth observation, meteorological, and geophysical datasets provided by independent scientific institutions under open-science principles:
+
+| Provider / Agency | Operating Entity | Dataset / Resource Link | Purpose in MCI |
+| :--- | :--- | :--- | :--- |
+| **NASA POWER** | NASA Langley Research Center (LaRC) | [power.larc.nasa.gov](https://power.larc.nasa.gov/api/temporal/daily/point) | Daily surface temperature, precipitation & solar irradiance |
+| **NASA GIBS** | NASA EOSDIS Core System | [gibs.earthdata.nasa.gov](https://gibs.earthdata.nasa.gov) | High-resolution satellite basemaps (Blue Marble, MODIS) |
+| **NASA FIRMS** | NASA Earthdata | [firms.modaps.eosdis.nasa.gov](https://firms.modaps.eosdis.nasa.gov) | Near-real-time thermal anomalies & wildfire tracking |
+| **NASA EONET** | NASA Goddard Space Flight Center (GSFC) | [eonet.gsfc.nasa.gov](https://eonet.gsfc.nasa.gov/api/v3/events) | Global natural hazard alerts (severe storms, cyclones) |
+| **USGS** | U.S. Geological Survey | [earthquake.usgs.gov](https://earthquake.usgs.gov) | Real-time seismic event telemetry feed |
+| **BMD** | Govt. of the People's Republic of Bangladesh | [bmd.gov.bd](https://bmd.gov.bd) | Ground meteorological forecasts & cyclone bulletins |
+| **FFWC** | Bangladesh Water Development Board (BWDB) | [ffwc.gov.bd](https://ffwc.gov.bd) | River water levels & regional flood warning telemetry |
+
+> [!NOTE]
+> This License applies exclusively to the source code and platform architectures developed by **Team AstroLogic**. It does not assert ownership or alter the independent open-data licensing and redistribution terms of the respective government agencies or scientific providers.
+
+---
+
+## 🔗 Official License References
+
+* **Open Source Initiative (OSI):** [MIT License Specification](https://opensource.org/licenses/MIT)
+* **Software Package Data Exchange:** [SPDX Identifier: MIT](https://spdx.org/licenses/MIT.html)
+* **Project Repository:** [AstroLogic — Megacity Climate Intelligence](https://github.com/TanvirHosenNishat01-blip/AstroLogic-Megacity-Climate-Intelligence)
